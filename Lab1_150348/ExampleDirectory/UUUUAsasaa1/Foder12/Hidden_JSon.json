@@ -1,0 +1,2071 @@
+using System;
+using System.Collections.Specialized;
+using System.IO;
+using System.Linq;
+using Lab1_150348.Comparers;
+
+namespace Lab1_150348
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            if (string.IsNullOrWhiteSpace(args.FirstOrDefault()))
+            {
+                Console.WriteLine("Argument with directory path is not provided.");
+                return;
+            }
+
+            Console.WriteLine("Directory tree:");
+            var root = new DirectoryInfo(args.FirstOrDefault());
+
+            PrintDirectoryContent(root);
+
+            Console.WriteLine();
+            Console.WriteLine("Directory path:");
+            Console.WriteLine(root.FullName);
+
+            Console.WriteLine();
+            Console.WriteLine("Oldest element creation date:");
+            Console.WriteLine(root.GetOldestDirectoryChildDate());
+
+            Console.WriteLine();
+            Console.WriteLine("File DOS attributes (RAHS):");
+            var fileInfo = root.GetRandomFile();
+            Console.WriteLine($"{fileInfo.Name}: {fileInfo.GetRAHSAttributes()}");
+
+
+            var orderedCollection = root
+                .GetFiles()
+                .OrderBy(info => info.FullName, new FilePatchComparer())
+                .ToDictionary(info => info.Name, info => info.Length);
+
+            Console.WriteLine();
+            Console.WriteLine("First directory's child files:");
+            foreach (var pair in orderedCollection)
+            {
+                Console.WriteLine($"{pair.Key} ({pair.Value} bytes)");
+            }
+
+
+            Console.ReadLine();
+        }
+
+        public static void PrintDirectoryContent(DirectoryInfo directoryInfo, int depth = 0)
+        {
+            var indentation = "--".Repeat(depth);
+
+            foreach (var file in directoryInfo.EnumerateFiles())
+            {
+                Console.WriteLine($"{indentation}{file.ToConsoleString()}");
+            }
+
+            foreach (var directory in directoryInfo.EnumerateDirectories())
+            {
+                Console.WriteLine($"{indentation}{directory.ToConsoleString()}");
+                PrintDirectoryContent(directory, depth++);
+            }
+        }
+    }
+}using System;
+using System.Collections.Specialized;
+using System.IO;
+using System.Linq;
+using Lab1_150348.Comparers;
+
+namespace Lab1_150348
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            if (string.IsNullOrWhiteSpace(args.FirstOrDefault()))
+            {
+                Console.WriteLine("Argument with directory path is not provided.");
+                return;
+            }
+
+            Console.WriteLine("Directory tree:");
+            var root = new DirectoryInfo(args.FirstOrDefault());
+
+            PrintDirectoryContent(root);
+
+            Console.WriteLine();
+            Console.WriteLine("Directory path:");
+            Console.WriteLine(root.FullName);
+
+            Console.WriteLine();
+            Console.WriteLine("Oldest element creation date:");
+            Console.WriteLine(root.GetOldestDirectoryChildDate());
+
+            Console.WriteLine();
+            Console.WriteLine("File DOS attributes (RAHS):");
+            var fileInfo = root.GetRandomFile();
+            Console.WriteLine($"{fileInfo.Name}: {fileInfo.GetRAHSAttributes()}");
+
+
+            var orderedCollection = root
+                .GetFiles()
+                .OrderBy(info => info.FullName, new FilePatchComparer())
+                .ToDictionary(info => info.Name, info => info.Length);
+
+            Console.WriteLine();
+            Console.WriteLine("First directory's child files:");
+            foreach (var pair in orderedCollection)
+            {
+                Console.WriteLine($"{pair.Key} ({pair.Value} bytes)");
+            }
+
+
+            Console.ReadLine();
+        }
+
+        public static void PrintDirectoryContent(DirectoryInfo directoryInfo, int depth = 0)
+        {
+            var indentation = "--".Repeat(depth);
+
+            foreach (var file in directoryInfo.EnumerateFiles())
+            {
+                Console.WriteLine($"{indentation}{file.ToConsoleString()}");
+            }
+
+            foreach (var directory in directoryInfo.EnumerateDirectories())
+            {
+                Console.WriteLine($"{indentation}{directory.ToConsoleString()}");
+                PrintDirectoryContent(directory, depth++);
+            }
+        }
+    }
+}using System;
+using System.Collections.Specialized;
+using System.IO;
+using System.Linq;
+using Lab1_150348.Comparers;
+
+namespace Lab1_150348
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            if (string.IsNullOrWhiteSpace(args.FirstOrDefault()))
+            {
+                Console.WriteLine("Argument with directory path is not provided.");
+                return;
+            }
+
+            Console.WriteLine("Directory tree:");
+            var root = new DirectoryInfo(args.FirstOrDefault());
+
+            PrintDirectoryContent(root);
+
+            Console.WriteLine();
+            Console.WriteLine("Directory path:");
+            Console.WriteLine(root.FullName);
+
+            Console.WriteLine();
+            Console.WriteLine("Oldest element creation date:");
+            Console.WriteLine(root.GetOldestDirectoryChildDate());
+
+            Console.WriteLine();
+            Console.WriteLine("File DOS attributes (RAHS):");
+            var fileInfo = root.GetRandomFile();
+            Console.WriteLine($"{fileInfo.Name}: {fileInfo.GetRAHSAttributes()}");
+
+
+            var orderedCollection = root
+                .GetFiles()
+                .OrderBy(info => info.FullName, new FilePatchComparer())
+                .ToDictionary(info => info.Name, info => info.Length);
+
+            Console.WriteLine();
+            Console.WriteLine("First directory's child files:");
+            foreach (var pair in orderedCollection)
+            {
+                Console.WriteLine($"{pair.Key} ({pair.Value} bytes)");
+            }
+
+
+            Console.ReadLine();
+        }
+
+        public static void PrintDirectoryContent(DirectoryInfo directoryInfo, int depth = 0)
+        {
+            var indentation = "--".Repeat(depth);
+
+            foreach (var file in directoryInfo.EnumerateFiles())
+            {
+                Console.WriteLine($"{indentation}{file.ToConsoleString()}");
+            }
+
+            foreach (var directory in directoryInfo.EnumerateDirectories())
+            {
+                Console.WriteLine($"{indentation}{directory.ToConsoleString()}");
+                PrintDirectoryContent(directory, depth++);
+            }
+        }
+    }
+}using System;
+using System.Collections.Specialized;
+using System.IO;
+using System.Linq;
+using Lab1_150348.Comparers;
+
+namespace Lab1_150348
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            if (string.IsNullOrWhiteSpace(args.FirstOrDefault()))
+            {
+                Console.WriteLine("Argument with directory path is not provided.");
+                return;
+            }
+
+            Console.WriteLine("Directory tree:");
+            var root = new DirectoryInfo(args.FirstOrDefault());
+
+            PrintDirectoryContent(root);
+
+            Console.WriteLine();
+            Console.WriteLine("Directory path:");
+            Console.WriteLine(root.FullName);
+
+            Console.WriteLine();
+            Console.WriteLine("Oldest element creation date:");
+            Console.WriteLine(root.GetOldestDirectoryChildDate());
+
+            Console.WriteLine();
+            Console.WriteLine("File DOS attributes (RAHS):");
+            var fileInfo = root.GetRandomFile();
+            Console.WriteLine($"{fileInfo.Name}: {fileInfo.GetRAHSAttributes()}");
+
+
+            var orderedCollection = root
+                .GetFiles()
+                .OrderBy(info => info.FullName, new FilePatchComparer())
+                .ToDictionary(info => info.Name, info => info.Length);
+
+            Console.WriteLine();
+            Console.WriteLine("First directory's child files:");
+            foreach (var pair in orderedCollection)
+            {
+                Console.WriteLine($"{pair.Key} ({pair.Value} bytes)");
+            }
+
+
+            Console.ReadLine();
+        }
+
+        public static void PrintDirectoryContent(DirectoryInfo directoryInfo, int depth = 0)
+        {
+            var indentation = "--".Repeat(depth);
+
+            foreach (var file in directoryInfo.EnumerateFiles())
+            {
+                Console.WriteLine($"{indentation}{file.ToConsoleString()}");
+            }
+
+            foreach (var directory in directoryInfo.EnumerateDirectories())
+            {
+                Console.WriteLine($"{indentation}{directory.ToConsoleString()}");
+                PrintDirectoryContent(directory, depth++);
+            }
+        }
+    }
+}using System;
+using System.Collections.Specialized;
+using System.IO;
+using System.Linq;
+using Lab1_150348.Comparers;
+
+namespace Lab1_150348
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            if (string.IsNullOrWhiteSpace(args.FirstOrDefault()))
+            {
+                Console.WriteLine("Argument with directory path is not provided.");
+                return;
+            }
+
+            Console.WriteLine("Directory tree:");
+            var root = new DirectoryInfo(args.FirstOrDefault());
+
+            PrintDirectoryContent(root);
+
+            Console.WriteLine();
+            Console.WriteLine("Directory path:");
+            Console.WriteLine(root.FullName);
+
+            Console.WriteLine();
+            Console.WriteLine("Oldest element creation date:");
+            Console.WriteLine(root.GetOldestDirectoryChildDate());
+
+            Console.WriteLine();
+            Console.WriteLine("File DOS attributes (RAHS):");
+            var fileInfo = root.GetRandomFile();
+            Console.WriteLine($"{fileInfo.Name}: {fileInfo.GetRAHSAttributes()}");
+
+
+            var orderedCollection = root
+                .GetFiles()
+                .OrderBy(info => info.FullName, new FilePatchComparer())
+                .ToDictionary(info => info.Name, info => info.Length);
+
+            Console.WriteLine();
+            Console.WriteLine("First directory's child files:");
+            foreach (var pair in orderedCollection)
+            {
+                Console.WriteLine($"{pair.Key} ({pair.Value} bytes)");
+            }
+
+
+            Console.ReadLine();
+        }
+
+        public static void PrintDirectoryContent(DirectoryInfo directoryInfo, int depth = 0)
+        {
+            var indentation = "--".Repeat(depth);
+
+            foreach (var file in directoryInfo.EnumerateFiles())
+            {
+                Console.WriteLine($"{indentation}{file.ToConsoleString()}");
+            }
+
+            foreach (var directory in directoryInfo.EnumerateDirectories())
+            {
+                Console.WriteLine($"{indentation}{directory.ToConsoleString()}");
+                PrintDirectoryContent(directory, depth++);
+            }
+        }
+    }
+}using System;
+using System.Collections.Specialized;
+using System.IO;
+using System.Linq;
+using Lab1_150348.Comparers;
+
+namespace Lab1_150348
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            if (string.IsNullOrWhiteSpace(args.FirstOrDefault()))
+            {
+                Console.WriteLine("Argument with directory path is not provided.");
+                return;
+            }
+
+            Console.WriteLine("Directory tree:");
+            var root = new DirectoryInfo(args.FirstOrDefault());
+
+            PrintDirectoryContent(root);
+
+            Console.WriteLine();
+            Console.WriteLine("Directory path:");
+            Console.WriteLine(root.FullName);
+
+            Console.WriteLine();
+            Console.WriteLine("Oldest element creation date:");
+            Console.WriteLine(root.GetOldestDirectoryChildDate());
+
+            Console.WriteLine();
+            Console.WriteLine("File DOS attributes (RAHS):");
+            var fileInfo = root.GetRandomFile();
+            Console.WriteLine($"{fileInfo.Name}: {fileInfo.GetRAHSAttributes()}");
+
+
+            var orderedCollection = root
+                .GetFiles()
+                .OrderBy(info => info.FullName, new FilePatchComparer())
+                .ToDictionary(info => info.Name, info => info.Length);
+
+            Console.WriteLine();
+            Console.WriteLine("First directory's child files:");
+            foreach (var pair in orderedCollection)
+            {
+                Console.WriteLine($"{pair.Key} ({pair.Value} bytes)");
+            }
+
+
+            Console.ReadLine();
+        }
+
+        public static void PrintDirectoryContent(DirectoryInfo directoryInfo, int depth = 0)
+        {
+            var indentation = "--".Repeat(depth);
+
+            foreach (var file in directoryInfo.EnumerateFiles())
+            {
+                Console.WriteLine($"{indentation}{file.ToConsoleString()}");
+            }
+
+            foreach (var directory in directoryInfo.EnumerateDirectories())
+            {
+                Console.WriteLine($"{indentation}{directory.ToConsoleString()}");
+                PrintDirectoryContent(directory, depth++);
+            }
+        }
+    }
+}using System;
+using System.Collections.Specialized;
+using System.IO;
+using System.Linq;
+using Lab1_150348.Comparers;
+
+namespace Lab1_150348
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            if (string.IsNullOrWhiteSpace(args.FirstOrDefault()))
+            {
+                Console.WriteLine("Argument with directory path is not provided.");
+                return;
+            }
+
+            Console.WriteLine("Directory tree:");
+            var root = new DirectoryInfo(args.FirstOrDefault());
+
+            PrintDirectoryContent(root);
+
+            Console.WriteLine();
+            Console.WriteLine("Directory path:");
+            Console.WriteLine(root.FullName);
+
+            Console.WriteLine();
+            Console.WriteLine("Oldest element creation date:");
+            Console.WriteLine(root.GetOldestDirectoryChildDate());
+
+            Console.WriteLine();
+            Console.WriteLine("File DOS attributes (RAHS):");
+            var fileInfo = root.GetRandomFile();
+            Console.WriteLine($"{fileInfo.Name}: {fileInfo.GetRAHSAttributes()}");
+
+
+            var orderedCollection = root
+                .GetFiles()
+                .OrderBy(info => info.FullName, new FilePatchComparer())
+                .ToDictionary(info => info.Name, info => info.Length);
+
+            Console.WriteLine();
+            Console.WriteLine("First directory's child files:");
+            foreach (var pair in orderedCollection)
+            {
+                Console.WriteLine($"{pair.Key} ({pair.Value} bytes)");
+            }
+
+
+            Console.ReadLine();
+        }
+
+        public static void PrintDirectoryContent(DirectoryInfo directoryInfo, int depth = 0)
+        {
+            var indentation = "--".Repeat(depth);
+
+            foreach (var file in directoryInfo.EnumerateFiles())
+            {
+                Console.WriteLine($"{indentation}{file.ToConsoleString()}");
+            }
+
+            foreach (var directory in directoryInfo.EnumerateDirectories())
+            {
+                Console.WriteLine($"{indentation}{directory.ToConsoleString()}");
+                PrintDirectoryContent(directory, depth++);
+            }
+        }
+    }
+}using System;
+using System.Collections.Specialized;
+using System.IO;
+using System.Linq;
+using Lab1_150348.Comparers;
+
+namespace Lab1_150348
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            if (string.IsNullOrWhiteSpace(args.FirstOrDefault()))
+            {
+                Console.WriteLine("Argument with directory path is not provided.");
+                return;
+            }
+
+            Console.WriteLine("Directory tree:");
+            var root = new DirectoryInfo(args.FirstOrDefault());
+
+            PrintDirectoryContent(root);
+
+            Console.WriteLine();
+            Console.WriteLine("Directory path:");
+            Console.WriteLine(root.FullName);
+
+            Console.WriteLine();
+            Console.WriteLine("Oldest element creation date:");
+            Console.WriteLine(root.GetOldestDirectoryChildDate());
+
+            Console.WriteLine();
+            Console.WriteLine("File DOS attributes (RAHS):");
+            var fileInfo = root.GetRandomFile();
+            Console.WriteLine($"{fileInfo.Name}: {fileInfo.GetRAHSAttributes()}");
+
+
+            var orderedCollection = root
+                .GetFiles()
+                .OrderBy(info => info.FullName, new FilePatchComparer())
+                .ToDictionary(info => info.Name, info => info.Length);
+
+            Console.WriteLine();
+            Console.WriteLine("First directory's child files:");
+            foreach (var pair in orderedCollection)
+            {
+                Console.WriteLine($"{pair.Key} ({pair.Value} bytes)");
+            }
+
+
+            Console.ReadLine();
+        }
+
+        public static void PrintDirectoryContent(DirectoryInfo directoryInfo, int depth = 0)
+        {
+            var indentation = "--".Repeat(depth);
+
+            foreach (var file in directoryInfo.EnumerateFiles())
+            {
+                Console.WriteLine($"{indentation}{file.ToConsoleString()}");
+            }
+
+            foreach (var directory in directoryInfo.EnumerateDirectories())
+            {
+                Console.WriteLine($"{indentation}{directory.ToConsoleString()}");
+                PrintDirectoryContent(directory, depth++);
+            }
+        }
+    }
+}using System;
+using System.Collections.Specialized;
+using System.IO;
+using System.Linq;
+using Lab1_150348.Comparers;
+
+namespace Lab1_150348
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            if (string.IsNullOrWhiteSpace(args.FirstOrDefault()))
+            {
+                Console.WriteLine("Argument with directory path is not provided.");
+                return;
+            }
+
+            Console.WriteLine("Directory tree:");
+            var root = new DirectoryInfo(args.FirstOrDefault());
+
+            PrintDirectoryContent(root);
+
+            Console.WriteLine();
+            Console.WriteLine("Directory path:");
+            Console.WriteLine(root.FullName);
+
+            Console.WriteLine();
+            Console.WriteLine("Oldest element creation date:");
+            Console.WriteLine(root.GetOldestDirectoryChildDate());
+
+            Console.WriteLine();
+            Console.WriteLine("File DOS attributes (RAHS):");
+            var fileInfo = root.GetRandomFile();
+            Console.WriteLine($"{fileInfo.Name}: {fileInfo.GetRAHSAttributes()}");
+
+
+            var orderedCollection = root
+                .GetFiles()
+                .OrderBy(info => info.FullName, new FilePatchComparer())
+                .ToDictionary(info => info.Name, info => info.Length);
+
+            Console.WriteLine();
+            Console.WriteLine("First directory's child files:");
+            foreach (var pair in orderedCollection)
+            {
+                Console.WriteLine($"{pair.Key} ({pair.Value} bytes)");
+            }
+
+
+            Console.ReadLine();
+        }
+
+        public static void PrintDirectoryContent(DirectoryInfo directoryInfo, int depth = 0)
+        {
+            var indentation = "--".Repeat(depth);
+
+            foreach (var file in directoryInfo.EnumerateFiles())
+            {
+                Console.WriteLine($"{indentation}{file.ToConsoleString()}");
+            }
+
+            foreach (var directory in directoryInfo.EnumerateDirectories())
+            {
+                Console.WriteLine($"{indentation}{directory.ToConsoleString()}");
+                PrintDirectoryContent(directory, depth++);
+            }
+        }
+    }
+}using System;
+using System.Collections.Specialized;
+using System.IO;
+using System.Linq;
+using Lab1_150348.Comparers;
+
+namespace Lab1_150348
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            if (string.IsNullOrWhiteSpace(args.FirstOrDefault()))
+            {
+                Console.WriteLine("Argument with directory path is not provided.");
+                return;
+            }
+
+            Console.WriteLine("Directory tree:");
+            var root = new DirectoryInfo(args.FirstOrDefault());
+
+            PrintDirectoryContent(root);
+
+            Console.WriteLine();
+            Console.WriteLine("Directory path:");
+            Console.WriteLine(root.FullName);
+
+            Console.WriteLine();
+            Console.WriteLine("Oldest element creation date:");
+            Console.WriteLine(root.GetOldestDirectoryChildDate());
+
+            Console.WriteLine();
+            Console.WriteLine("File DOS attributes (RAHS):");
+            var fileInfo = root.GetRandomFile();
+            Console.WriteLine($"{fileInfo.Name}: {fileInfo.GetRAHSAttributes()}");
+
+
+            var orderedCollection = root
+                .GetFiles()
+                .OrderBy(info => info.FullName, new FilePatchComparer())
+                .ToDictionary(info => info.Name, info => info.Length);
+
+            Console.WriteLine();
+            Console.WriteLine("First directory's child files:");
+            foreach (var pair in orderedCollection)
+            {
+                Console.WriteLine($"{pair.Key} ({pair.Value} bytes)");
+            }
+
+
+            Console.ReadLine();
+        }
+
+        public static void PrintDirectoryContent(DirectoryInfo directoryInfo, int depth = 0)
+        {
+            var indentation = "--".Repeat(depth);
+
+            foreach (var file in directoryInfo.EnumerateFiles())
+            {
+                Console.WriteLine($"{indentation}{file.ToConsoleString()}");
+            }
+
+            foreach (var directory in directoryInfo.EnumerateDirectories())
+            {
+                Console.WriteLine($"{indentation}{directory.ToConsoleString()}");
+                PrintDirectoryContent(directory, depth++);
+            }
+        }
+    }
+}using System;
+using System.Collections.Specialized;
+using System.IO;
+using System.Linq;
+using Lab1_150348.Comparers;
+
+namespace Lab1_150348
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            if (string.IsNullOrWhiteSpace(args.FirstOrDefault()))
+            {
+                Console.WriteLine("Argument with directory path is not provided.");
+                return;
+            }
+
+            Console.WriteLine("Directory tree:");
+            var root = new DirectoryInfo(args.FirstOrDefault());
+
+            PrintDirectoryContent(root);
+
+            Console.WriteLine();
+            Console.WriteLine("Directory path:");
+            Console.WriteLine(root.FullName);
+
+            Console.WriteLine();
+            Console.WriteLine("Oldest element creation date:");
+            Console.WriteLine(root.GetOldestDirectoryChildDate());
+
+            Console.WriteLine();
+            Console.WriteLine("File DOS attributes (RAHS):");
+            var fileInfo = root.GetRandomFile();
+            Console.WriteLine($"{fileInfo.Name}: {fileInfo.GetRAHSAttributes()}");
+
+
+            var orderedCollection = root
+                .GetFiles()
+                .OrderBy(info => info.FullName, new FilePatchComparer())
+                .ToDictionary(info => info.Name, info => info.Length);
+
+            Console.WriteLine();
+            Console.WriteLine("First directory's child files:");
+            foreach (var pair in orderedCollection)
+            {
+                Console.WriteLine($"{pair.Key} ({pair.Value} bytes)");
+            }
+
+
+            Console.ReadLine();
+        }
+
+        public static void PrintDirectoryContent(DirectoryInfo directoryInfo, int depth = 0)
+        {
+            var indentation = "--".Repeat(depth);
+
+            foreach (var file in directoryInfo.EnumerateFiles())
+            {
+                Console.WriteLine($"{indentation}{file.ToConsoleString()}");
+            }
+
+            foreach (var directory in directoryInfo.EnumerateDirectories())
+            {
+                Console.WriteLine($"{indentation}{directory.ToConsoleString()}");
+                PrintDirectoryContent(directory, depth++);
+            }
+        }
+    }
+}using System;
+using System.Collections.Specialized;
+using System.IO;
+using System.Linq;
+using Lab1_150348.Comparers;
+
+namespace Lab1_150348
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            if (string.IsNullOrWhiteSpace(args.FirstOrDefault()))
+            {
+                Console.WriteLine("Argument with directory path is not provided.");
+                return;
+            }
+
+            Console.WriteLine("Directory tree:");
+            var root = new DirectoryInfo(args.FirstOrDefault());
+
+            PrintDirectoryContent(root);
+
+            Console.WriteLine();
+            Console.WriteLine("Directory path:");
+            Console.WriteLine(root.FullName);
+
+            Console.WriteLine();
+            Console.WriteLine("Oldest element creation date:");
+            Console.WriteLine(root.GetOldestDirectoryChildDate());
+
+            Console.WriteLine();
+            Console.WriteLine("File DOS attributes (RAHS):");
+            var fileInfo = root.GetRandomFile();
+            Console.WriteLine($"{fileInfo.Name}: {fileInfo.GetRAHSAttributes()}");
+
+
+            var orderedCollection = root
+                .GetFiles()
+                .OrderBy(info => info.FullName, new FilePatchComparer())
+                .ToDictionary(info => info.Name, info => info.Length);
+
+            Console.WriteLine();
+            Console.WriteLine("First directory's child files:");
+            foreach (var pair in orderedCollection)
+            {
+                Console.WriteLine($"{pair.Key} ({pair.Value} bytes)");
+            }
+
+
+            Console.ReadLine();
+        }
+
+        public static void PrintDirectoryContent(DirectoryInfo directoryInfo, int depth = 0)
+        {
+            var indentation = "--".Repeat(depth);
+
+            foreach (var file in directoryInfo.EnumerateFiles())
+            {
+                Console.WriteLine($"{indentation}{file.ToConsoleString()}");
+            }
+
+            foreach (var directory in directoryInfo.EnumerateDirectories())
+            {
+                Console.WriteLine($"{indentation}{directory.ToConsoleString()}");
+                PrintDirectoryContent(directory, depth++);
+            }
+        }
+    }
+}using System;
+using System.Collections.Specialized;
+using System.IO;
+using System.Linq;
+using Lab1_150348.Comparers;
+
+namespace Lab1_150348
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            if (string.IsNullOrWhiteSpace(args.FirstOrDefault()))
+            {
+                Console.WriteLine("Argument with directory path is not provided.");
+                return;
+            }
+
+            Console.WriteLine("Directory tree:");
+            var root = new DirectoryInfo(args.FirstOrDefault());
+
+            PrintDirectoryContent(root);
+
+            Console.WriteLine();
+            Console.WriteLine("Directory path:");
+            Console.WriteLine(root.FullName);
+
+            Console.WriteLine();
+            Console.WriteLine("Oldest element creation date:");
+            Console.WriteLine(root.GetOldestDirectoryChildDate());
+
+            Console.WriteLine();
+            Console.WriteLine("File DOS attributes (RAHS):");
+            var fileInfo = root.GetRandomFile();
+            Console.WriteLine($"{fileInfo.Name}: {fileInfo.GetRAHSAttributes()}");
+
+
+            var orderedCollection = root
+                .GetFiles()
+                .OrderBy(info => info.FullName, new FilePatchComparer())
+                .ToDictionary(info => info.Name, info => info.Length);
+
+            Console.WriteLine();
+            Console.WriteLine("First directory's child files:");
+            foreach (var pair in orderedCollection)
+            {
+                Console.WriteLine($"{pair.Key} ({pair.Value} bytes)");
+            }
+
+
+            Console.ReadLine();
+        }
+
+        public static void PrintDirectoryContent(DirectoryInfo directoryInfo, int depth = 0)
+        {
+            var indentation = "--".Repeat(depth);
+
+            foreach (var file in directoryInfo.EnumerateFiles())
+            {
+                Console.WriteLine($"{indentation}{file.ToConsoleString()}");
+            }
+
+            foreach (var directory in directoryInfo.EnumerateDirectories())
+            {
+                Console.WriteLine($"{indentation}{directory.ToConsoleString()}");
+                PrintDirectoryContent(directory, depth++);
+            }
+        }
+    }
+}using System;
+using System.Collections.Specialized;
+using System.IO;
+using System.Linq;
+using Lab1_150348.Comparers;
+
+namespace Lab1_150348
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            if (string.IsNullOrWhiteSpace(args.FirstOrDefault()))
+            {
+                Console.WriteLine("Argument with directory path is not provided.");
+                return;
+            }
+
+            Console.WriteLine("Directory tree:");
+            var root = new DirectoryInfo(args.FirstOrDefault());
+
+            PrintDirectoryContent(root);
+
+            Console.WriteLine();
+            Console.WriteLine("Directory path:");
+            Console.WriteLine(root.FullName);
+
+            Console.WriteLine();
+            Console.WriteLine("Oldest element creation date:");
+            Console.WriteLine(root.GetOldestDirectoryChildDate());
+
+            Console.WriteLine();
+            Console.WriteLine("File DOS attributes (RAHS):");
+            var fileInfo = root.GetRandomFile();
+            Console.WriteLine($"{fileInfo.Name}: {fileInfo.GetRAHSAttributes()}");
+
+
+            var orderedCollection = root
+                .GetFiles()
+                .OrderBy(info => info.FullName, new FilePatchComparer())
+                .ToDictionary(info => info.Name, info => info.Length);
+
+            Console.WriteLine();
+            Console.WriteLine("First directory's child files:");
+            foreach (var pair in orderedCollection)
+            {
+                Console.WriteLine($"{pair.Key} ({pair.Value} bytes)");
+            }
+
+
+            Console.ReadLine();
+        }
+
+        public static void PrintDirectoryContent(DirectoryInfo directoryInfo, int depth = 0)
+        {
+            var indentation = "--".Repeat(depth);
+
+            foreach (var file in directoryInfo.EnumerateFiles())
+            {
+                Console.WriteLine($"{indentation}{file.ToConsoleString()}");
+            }
+
+            foreach (var directory in directoryInfo.EnumerateDirectories())
+            {
+                Console.WriteLine($"{indentation}{directory.ToConsoleString()}");
+                PrintDirectoryContent(directory, depth++);
+            }
+        }
+    }
+}using System;
+using System.Collections.Specialized;
+using System.IO;
+using System.Linq;
+using Lab1_150348.Comparers;
+
+namespace Lab1_150348
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            if (string.IsNullOrWhiteSpace(args.FirstOrDefault()))
+            {
+                Console.WriteLine("Argument with directory path is not provided.");
+                return;
+            }
+
+            Console.WriteLine("Directory tree:");
+            var root = new DirectoryInfo(args.FirstOrDefault());
+
+            PrintDirectoryContent(root);
+
+            Console.WriteLine();
+            Console.WriteLine("Directory path:");
+            Console.WriteLine(root.FullName);
+
+            Console.WriteLine();
+            Console.WriteLine("Oldest element creation date:");
+            Console.WriteLine(root.GetOldestDirectoryChildDate());
+
+            Console.WriteLine();
+            Console.WriteLine("File DOS attributes (RAHS):");
+            var fileInfo = root.GetRandomFile();
+            Console.WriteLine($"{fileInfo.Name}: {fileInfo.GetRAHSAttributes()}");
+
+
+            var orderedCollection = root
+                .GetFiles()
+                .OrderBy(info => info.FullName, new FilePatchComparer())
+                .ToDictionary(info => info.Name, info => info.Length);
+
+            Console.WriteLine();
+            Console.WriteLine("First directory's child files:");
+            foreach (var pair in orderedCollection)
+            {
+                Console.WriteLine($"{pair.Key} ({pair.Value} bytes)");
+            }
+
+
+            Console.ReadLine();
+        }
+
+        public static void PrintDirectoryContent(DirectoryInfo directoryInfo, int depth = 0)
+        {
+            var indentation = "--".Repeat(depth);
+
+            foreach (var file in directoryInfo.EnumerateFiles())
+            {
+                Console.WriteLine($"{indentation}{file.ToConsoleString()}");
+            }
+
+            foreach (var directory in directoryInfo.EnumerateDirectories())
+            {
+                Console.WriteLine($"{indentation}{directory.ToConsoleString()}");
+                PrintDirectoryContent(directory, depth++);
+            }
+        }
+    }
+}using System;
+using System.Collections.Specialized;
+using System.IO;
+using System.Linq;
+using Lab1_150348.Comparers;
+
+namespace Lab1_150348
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            if (string.IsNullOrWhiteSpace(args.FirstOrDefault()))
+            {
+                Console.WriteLine("Argument with directory path is not provided.");
+                return;
+            }
+
+            Console.WriteLine("Directory tree:");
+            var root = new DirectoryInfo(args.FirstOrDefault());
+
+            PrintDirectoryContent(root);
+
+            Console.WriteLine();
+            Console.WriteLine("Directory path:");
+            Console.WriteLine(root.FullName);
+
+            Console.WriteLine();
+            Console.WriteLine("Oldest element creation date:");
+            Console.WriteLine(root.GetOldestDirectoryChildDate());
+
+            Console.WriteLine();
+            Console.WriteLine("File DOS attributes (RAHS):");
+            var fileInfo = root.GetRandomFile();
+            Console.WriteLine($"{fileInfo.Name}: {fileInfo.GetRAHSAttributes()}");
+
+
+            var orderedCollection = root
+                .GetFiles()
+                .OrderBy(info => info.FullName, new FilePatchComparer())
+                .ToDictionary(info => info.Name, info => info.Length);
+
+            Console.WriteLine();
+            Console.WriteLine("First directory's child files:");
+            foreach (var pair in orderedCollection)
+            {
+                Console.WriteLine($"{pair.Key} ({pair.Value} bytes)");
+            }
+
+
+            Console.ReadLine();
+        }
+
+        public static void PrintDirectoryContent(DirectoryInfo directoryInfo, int depth = 0)
+        {
+            var indentation = "--".Repeat(depth);
+
+            foreach (var file in directoryInfo.EnumerateFiles())
+            {
+                Console.WriteLine($"{indentation}{file.ToConsoleString()}");
+            }
+
+            foreach (var directory in directoryInfo.EnumerateDirectories())
+            {
+                Console.WriteLine($"{indentation}{directory.ToConsoleString()}");
+                PrintDirectoryContent(directory, depth++);
+            }
+        }
+    }
+}using System;
+using System.Collections.Specialized;
+using System.IO;
+using System.Linq;
+using Lab1_150348.Comparers;
+
+namespace Lab1_150348
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            if (string.IsNullOrWhiteSpace(args.FirstOrDefault()))
+            {
+                Console.WriteLine("Argument with directory path is not provided.");
+                return;
+            }
+
+            Console.WriteLine("Directory tree:");
+            var root = new DirectoryInfo(args.FirstOrDefault());
+
+            PrintDirectoryContent(root);
+
+            Console.WriteLine();
+            Console.WriteLine("Directory path:");
+            Console.WriteLine(root.FullName);
+
+            Console.WriteLine();
+            Console.WriteLine("Oldest element creation date:");
+            Console.WriteLine(root.GetOldestDirectoryChildDate());
+
+            Console.WriteLine();
+            Console.WriteLine("File DOS attributes (RAHS):");
+            var fileInfo = root.GetRandomFile();
+            Console.WriteLine($"{fileInfo.Name}: {fileInfo.GetRAHSAttributes()}");
+
+
+            var orderedCollection = root
+                .GetFiles()
+                .OrderBy(info => info.FullName, new FilePatchComparer())
+                .ToDictionary(info => info.Name, info => info.Length);
+
+            Console.WriteLine();
+            Console.WriteLine("First directory's child files:");
+            foreach (var pair in orderedCollection)
+            {
+                Console.WriteLine($"{pair.Key} ({pair.Value} bytes)");
+            }
+
+
+            Console.ReadLine();
+        }
+
+        public static void PrintDirectoryContent(DirectoryInfo directoryInfo, int depth = 0)
+        {
+            var indentation = "--".Repeat(depth);
+
+            foreach (var file in directoryInfo.EnumerateFiles())
+            {
+                Console.WriteLine($"{indentation}{file.ToConsoleString()}");
+            }
+
+            foreach (var directory in directoryInfo.EnumerateDirectories())
+            {
+                Console.WriteLine($"{indentation}{directory.ToConsoleString()}");
+                PrintDirectoryContent(directory, depth++);
+            }
+        }
+    }
+}using System;
+using System.Collections.Specialized;
+using System.IO;
+using System.Linq;
+using Lab1_150348.Comparers;
+
+namespace Lab1_150348
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            if (string.IsNullOrWhiteSpace(args.FirstOrDefault()))
+            {
+                Console.WriteLine("Argument with directory path is not provided.");
+                return;
+            }
+
+            Console.WriteLine("Directory tree:");
+            var root = new DirectoryInfo(args.FirstOrDefault());
+
+            PrintDirectoryContent(root);
+
+            Console.WriteLine();
+            Console.WriteLine("Directory path:");
+            Console.WriteLine(root.FullName);
+
+            Console.WriteLine();
+            Console.WriteLine("Oldest element creation date:");
+            Console.WriteLine(root.GetOldestDirectoryChildDate());
+
+            Console.WriteLine();
+            Console.WriteLine("File DOS attributes (RAHS):");
+            var fileInfo = root.GetRandomFile();
+            Console.WriteLine($"{fileInfo.Name}: {fileInfo.GetRAHSAttributes()}");
+
+
+            var orderedCollection = root
+                .GetFiles()
+                .OrderBy(info => info.FullName, new FilePatchComparer())
+                .ToDictionary(info => info.Name, info => info.Length);
+
+            Console.WriteLine();
+            Console.WriteLine("First directory's child files:");
+            foreach (var pair in orderedCollection)
+            {
+                Console.WriteLine($"{pair.Key} ({pair.Value} bytes)");
+            }
+
+
+            Console.ReadLine();
+        }
+
+        public static void PrintDirectoryContent(DirectoryInfo directoryInfo, int depth = 0)
+        {
+            var indentation = "--".Repeat(depth);
+
+            foreach (var file in directoryInfo.EnumerateFiles())
+            {
+                Console.WriteLine($"{indentation}{file.ToConsoleString()}");
+            }
+
+            foreach (var directory in directoryInfo.EnumerateDirectories())
+            {
+                Console.WriteLine($"{indentation}{directory.ToConsoleString()}");
+                PrintDirectoryContent(directory, depth++);
+            }
+        }
+    }
+}using System;
+using System.Collections.Specialized;
+using System.IO;
+using System.Linq;
+using Lab1_150348.Comparers;
+
+namespace Lab1_150348
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            if (string.IsNullOrWhiteSpace(args.FirstOrDefault()))
+            {
+                Console.WriteLine("Argument with directory path is not provided.");
+                return;
+            }
+
+            Console.WriteLine("Directory tree:");
+            var root = new DirectoryInfo(args.FirstOrDefault());
+
+            PrintDirectoryContent(root);
+
+            Console.WriteLine();
+            Console.WriteLine("Directory path:");
+            Console.WriteLine(root.FullName);
+
+            Console.WriteLine();
+            Console.WriteLine("Oldest element creation date:");
+            Console.WriteLine(root.GetOldestDirectoryChildDate());
+
+            Console.WriteLine();
+            Console.WriteLine("File DOS attributes (RAHS):");
+            var fileInfo = root.GetRandomFile();
+            Console.WriteLine($"{fileInfo.Name}: {fileInfo.GetRAHSAttributes()}");
+
+
+            var orderedCollection = root
+                .GetFiles()
+                .OrderBy(info => info.FullName, new FilePatchComparer())
+                .ToDictionary(info => info.Name, info => info.Length);
+
+            Console.WriteLine();
+            Console.WriteLine("First directory's child files:");
+            foreach (var pair in orderedCollection)
+            {
+                Console.WriteLine($"{pair.Key} ({pair.Value} bytes)");
+            }
+
+
+            Console.ReadLine();
+        }
+
+        public static void PrintDirectoryContent(DirectoryInfo directoryInfo, int depth = 0)
+        {
+            var indentation = "--".Repeat(depth);
+
+            foreach (var file in directoryInfo.EnumerateFiles())
+            {
+                Console.WriteLine($"{indentation}{file.ToConsoleString()}");
+            }
+
+            foreach (var directory in directoryInfo.EnumerateDirectories())
+            {
+                Console.WriteLine($"{indentation}{directory.ToConsoleString()}");
+                PrintDirectoryContent(directory, depth++);
+            }
+        }
+    }
+}using System;
+using System.Collections.Specialized;
+using System.IO;
+using System.Linq;
+using Lab1_150348.Comparers;
+
+namespace Lab1_150348
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            if (string.IsNullOrWhiteSpace(args.FirstOrDefault()))
+            {
+                Console.WriteLine("Argument with directory path is not provided.");
+                return;
+            }
+
+            Console.WriteLine("Directory tree:");
+            var root = new DirectoryInfo(args.FirstOrDefault());
+
+            PrintDirectoryContent(root);
+
+            Console.WriteLine();
+            Console.WriteLine("Directory path:");
+            Console.WriteLine(root.FullName);
+
+            Console.WriteLine();
+            Console.WriteLine("Oldest element creation date:");
+            Console.WriteLine(root.GetOldestDirectoryChildDate());
+
+            Console.WriteLine();
+            Console.WriteLine("File DOS attributes (RAHS):");
+            var fileInfo = root.GetRandomFile();
+            Console.WriteLine($"{fileInfo.Name}: {fileInfo.GetRAHSAttributes()}");
+
+
+            var orderedCollection = root
+                .GetFiles()
+                .OrderBy(info => info.FullName, new FilePatchComparer())
+                .ToDictionary(info => info.Name, info => info.Length);
+
+            Console.WriteLine();
+            Console.WriteLine("First directory's child files:");
+            foreach (var pair in orderedCollection)
+            {
+                Console.WriteLine($"{pair.Key} ({pair.Value} bytes)");
+            }
+
+
+            Console.ReadLine();
+        }
+
+        public static void PrintDirectoryContent(DirectoryInfo directoryInfo, int depth = 0)
+        {
+            var indentation = "--".Repeat(depth);
+
+            foreach (var file in directoryInfo.EnumerateFiles())
+            {
+                Console.WriteLine($"{indentation}{file.ToConsoleString()}");
+            }
+
+            foreach (var directory in directoryInfo.EnumerateDirectories())
+            {
+                Console.WriteLine($"{indentation}{directory.ToConsoleString()}");
+                PrintDirectoryContent(directory, depth++);
+            }
+        }
+    }
+}using System;
+using System.Collections.Specialized;
+using System.IO;
+using System.Linq;
+using Lab1_150348.Comparers;
+
+namespace Lab1_150348
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            if (string.IsNullOrWhiteSpace(args.FirstOrDefault()))
+            {
+                Console.WriteLine("Argument with directory path is not provided.");
+                return;
+            }
+
+            Console.WriteLine("Directory tree:");
+            var root = new DirectoryInfo(args.FirstOrDefault());
+
+            PrintDirectoryContent(root);
+
+            Console.WriteLine();
+            Console.WriteLine("Directory path:");
+            Console.WriteLine(root.FullName);
+
+            Console.WriteLine();
+            Console.WriteLine("Oldest element creation date:");
+            Console.WriteLine(root.GetOldestDirectoryChildDate());
+
+            Console.WriteLine();
+            Console.WriteLine("File DOS attributes (RAHS):");
+            var fileInfo = root.GetRandomFile();
+            Console.WriteLine($"{fileInfo.Name}: {fileInfo.GetRAHSAttributes()}");
+
+
+            var orderedCollection = root
+                .GetFiles()
+                .OrderBy(info => info.FullName, new FilePatchComparer())
+                .ToDictionary(info => info.Name, info => info.Length);
+
+            Console.WriteLine();
+            Console.WriteLine("First directory's child files:");
+            foreach (var pair in orderedCollection)
+            {
+                Console.WriteLine($"{pair.Key} ({pair.Value} bytes)");
+            }
+
+
+            Console.ReadLine();
+        }
+
+        public static void PrintDirectoryContent(DirectoryInfo directoryInfo, int depth = 0)
+        {
+            var indentation = "--".Repeat(depth);
+
+            foreach (var file in directoryInfo.EnumerateFiles())
+            {
+                Console.WriteLine($"{indentation}{file.ToConsoleString()}");
+            }
+
+            foreach (var directory in directoryInfo.EnumerateDirectories())
+            {
+                Console.WriteLine($"{indentation}{directory.ToConsoleString()}");
+                PrintDirectoryContent(directory, depth++);
+            }
+        }
+    }
+}using System;
+using System.Collections.Specialized;
+using System.IO;
+using System.Linq;
+using Lab1_150348.Comparers;
+
+namespace Lab1_150348
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            if (string.IsNullOrWhiteSpace(args.FirstOrDefault()))
+            {
+                Console.WriteLine("Argument with directory path is not provided.");
+                return;
+            }
+
+            Console.WriteLine("Directory tree:");
+            var root = new DirectoryInfo(args.FirstOrDefault());
+
+            PrintDirectoryContent(root);
+
+            Console.WriteLine();
+            Console.WriteLine("Directory path:");
+            Console.WriteLine(root.FullName);
+
+            Console.WriteLine();
+            Console.WriteLine("Oldest element creation date:");
+            Console.WriteLine(root.GetOldestDirectoryChildDate());
+
+            Console.WriteLine();
+            Console.WriteLine("File DOS attributes (RAHS):");
+            var fileInfo = root.GetRandomFile();
+            Console.WriteLine($"{fileInfo.Name}: {fileInfo.GetRAHSAttributes()}");
+
+
+            var orderedCollection = root
+                .GetFiles()
+                .OrderBy(info => info.FullName, new FilePatchComparer())
+                .ToDictionary(info => info.Name, info => info.Length);
+
+            Console.WriteLine();
+            Console.WriteLine("First directory's child files:");
+            foreach (var pair in orderedCollection)
+            {
+                Console.WriteLine($"{pair.Key} ({pair.Value} bytes)");
+            }
+
+
+            Console.ReadLine();
+        }
+
+        public static void PrintDirectoryContent(DirectoryInfo directoryInfo, int depth = 0)
+        {
+            var indentation = "--".Repeat(depth);
+
+            foreach (var file in directoryInfo.EnumerateFiles())
+            {
+                Console.WriteLine($"{indentation}{file.ToConsoleString()}");
+            }
+
+            foreach (var directory in directoryInfo.EnumerateDirectories())
+            {
+                Console.WriteLine($"{indentation}{directory.ToConsoleString()}");
+                PrintDirectoryContent(directory, depth++);
+            }
+        }
+    }
+}using System;
+using System.Collections.Specialized;
+using System.IO;
+using System.Linq;
+using Lab1_150348.Comparers;
+
+namespace Lab1_150348
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            if (string.IsNullOrWhiteSpace(args.FirstOrDefault()))
+            {
+                Console.WriteLine("Argument with directory path is not provided.");
+                return;
+            }
+
+            Console.WriteLine("Directory tree:");
+            var root = new DirectoryInfo(args.FirstOrDefault());
+
+            PrintDirectoryContent(root);
+
+            Console.WriteLine();
+            Console.WriteLine("Directory path:");
+            Console.WriteLine(root.FullName);
+
+            Console.WriteLine();
+            Console.WriteLine("Oldest element creation date:");
+            Console.WriteLine(root.GetOldestDirectoryChildDate());
+
+            Console.WriteLine();
+            Console.WriteLine("File DOS attributes (RAHS):");
+            var fileInfo = root.GetRandomFile();
+            Console.WriteLine($"{fileInfo.Name}: {fileInfo.GetRAHSAttributes()}");
+
+
+            var orderedCollection = root
+                .GetFiles()
+                .OrderBy(info => info.FullName, new FilePatchComparer())
+                .ToDictionary(info => info.Name, info => info.Length);
+
+            Console.WriteLine();
+            Console.WriteLine("First directory's child files:");
+            foreach (var pair in orderedCollection)
+            {
+                Console.WriteLine($"{pair.Key} ({pair.Value} bytes)");
+            }
+
+
+            Console.ReadLine();
+        }
+
+        public static void PrintDirectoryContent(DirectoryInfo directoryInfo, int depth = 0)
+        {
+            var indentation = "--".Repeat(depth);
+
+            foreach (var file in directoryInfo.EnumerateFiles())
+            {
+                Console.WriteLine($"{indentation}{file.ToConsoleString()}");
+            }
+
+            foreach (var directory in directoryInfo.EnumerateDirectories())
+            {
+                Console.WriteLine($"{indentation}{directory.ToConsoleString()}");
+                PrintDirectoryContent(directory, depth++);
+            }
+        }
+    }
+}using System;
+using System.Collections.Specialized;
+using System.IO;
+using System.Linq;
+using Lab1_150348.Comparers;
+
+namespace Lab1_150348
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            if (string.IsNullOrWhiteSpace(args.FirstOrDefault()))
+            {
+                Console.WriteLine("Argument with directory path is not provided.");
+                return;
+            }
+
+            Console.WriteLine("Directory tree:");
+            var root = new DirectoryInfo(args.FirstOrDefault());
+
+            PrintDirectoryContent(root);
+
+            Console.WriteLine();
+            Console.WriteLine("Directory path:");
+            Console.WriteLine(root.FullName);
+
+            Console.WriteLine();
+            Console.WriteLine("Oldest element creation date:");
+            Console.WriteLine(root.GetOldestDirectoryChildDate());
+
+            Console.WriteLine();
+            Console.WriteLine("File DOS attributes (RAHS):");
+            var fileInfo = root.GetRandomFile();
+            Console.WriteLine($"{fileInfo.Name}: {fileInfo.GetRAHSAttributes()}");
+
+
+            var orderedCollection = root
+                .GetFiles()
+                .OrderBy(info => info.FullName, new FilePatchComparer())
+                .ToDictionary(info => info.Name, info => info.Length);
+
+            Console.WriteLine();
+            Console.WriteLine("First directory's child files:");
+            foreach (var pair in orderedCollection)
+            {
+                Console.WriteLine($"{pair.Key} ({pair.Value} bytes)");
+            }
+
+
+            Console.ReadLine();
+        }
+
+        public static void PrintDirectoryContent(DirectoryInfo directoryInfo, int depth = 0)
+        {
+            var indentation = "--".Repeat(depth);
+
+            foreach (var file in directoryInfo.EnumerateFiles())
+            {
+                Console.WriteLine($"{indentation}{file.ToConsoleString()}");
+            }
+
+            foreach (var directory in directoryInfo.EnumerateDirectories())
+            {
+                Console.WriteLine($"{indentation}{directory.ToConsoleString()}");
+                PrintDirectoryContent(directory, depth++);
+            }
+        }
+    }
+}using System;
+using System.Collections.Specialized;
+using System.IO;
+using System.Linq;
+using Lab1_150348.Comparers;
+
+namespace Lab1_150348
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            if (string.IsNullOrWhiteSpace(args.FirstOrDefault()))
+            {
+                Console.WriteLine("Argument with directory path is not provided.");
+                return;
+            }
+
+            Console.WriteLine("Directory tree:");
+            var root = new DirectoryInfo(args.FirstOrDefault());
+
+            PrintDirectoryContent(root);
+
+            Console.WriteLine();
+            Console.WriteLine("Directory path:");
+            Console.WriteLine(root.FullName);
+
+            Console.WriteLine();
+            Console.WriteLine("Oldest element creation date:");
+            Console.WriteLine(root.GetOldestDirectoryChildDate());
+
+            Console.WriteLine();
+            Console.WriteLine("File DOS attributes (RAHS):");
+            var fileInfo = root.GetRandomFile();
+            Console.WriteLine($"{fileInfo.Name}: {fileInfo.GetRAHSAttributes()}");
+
+
+            var orderedCollection = root
+                .GetFiles()
+                .OrderBy(info => info.FullName, new FilePatchComparer())
+                .ToDictionary(info => info.Name, info => info.Length);
+
+            Console.WriteLine();
+            Console.WriteLine("First directory's child files:");
+            foreach (var pair in orderedCollection)
+            {
+                Console.WriteLine($"{pair.Key} ({pair.Value} bytes)");
+            }
+
+
+            Console.ReadLine();
+        }
+
+        public static void PrintDirectoryContent(DirectoryInfo directoryInfo, int depth = 0)
+        {
+            var indentation = "--".Repeat(depth);
+
+            foreach (var file in directoryInfo.EnumerateFiles())
+            {
+                Console.WriteLine($"{indentation}{file.ToConsoleString()}");
+            }
+
+            foreach (var directory in directoryInfo.EnumerateDirectories())
+            {
+                Console.WriteLine($"{indentation}{directory.ToConsoleString()}");
+                PrintDirectoryContent(directory, depth++);
+            }
+        }
+    }
+}using System;
+using System.Collections.Specialized;
+using System.IO;
+using System.Linq;
+using Lab1_150348.Comparers;
+
+namespace Lab1_150348
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            if (string.IsNullOrWhiteSpace(args.FirstOrDefault()))
+            {
+                Console.WriteLine("Argument with directory path is not provided.");
+                return;
+            }
+
+            Console.WriteLine("Directory tree:");
+            var root = new DirectoryInfo(args.FirstOrDefault());
+
+            PrintDirectoryContent(root);
+
+            Console.WriteLine();
+            Console.WriteLine("Directory path:");
+            Console.WriteLine(root.FullName);
+
+            Console.WriteLine();
+            Console.WriteLine("Oldest element creation date:");
+            Console.WriteLine(root.GetOldestDirectoryChildDate());
+
+            Console.WriteLine();
+            Console.WriteLine("File DOS attributes (RAHS):");
+            var fileInfo = root.GetRandomFile();
+            Console.WriteLine($"{fileInfo.Name}: {fileInfo.GetRAHSAttributes()}");
+
+
+            var orderedCollection = root
+                .GetFiles()
+                .OrderBy(info => info.FullName, new FilePatchComparer())
+                .ToDictionary(info => info.Name, info => info.Length);
+
+            Console.WriteLine();
+            Console.WriteLine("First directory's child files:");
+            foreach (var pair in orderedCollection)
+            {
+                Console.WriteLine($"{pair.Key} ({pair.Value} bytes)");
+            }
+
+
+            Console.ReadLine();
+        }
+
+        public static void PrintDirectoryContent(DirectoryInfo directoryInfo, int depth = 0)
+        {
+            var indentation = "--".Repeat(depth);
+
+            foreach (var file in directoryInfo.EnumerateFiles())
+            {
+                Console.WriteLine($"{indentation}{file.ToConsoleString()}");
+            }
+
+            foreach (var directory in directoryInfo.EnumerateDirectories())
+            {
+                Console.WriteLine($"{indentation}{directory.ToConsoleString()}");
+                PrintDirectoryContent(directory, depth++);
+            }
+        }
+    }
+}using System;
+using System.Collections.Specialized;
+using System.IO;
+using System.Linq;
+using Lab1_150348.Comparers;
+
+namespace Lab1_150348
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            if (string.IsNullOrWhiteSpace(args.FirstOrDefault()))
+            {
+                Console.WriteLine("Argument with directory path is not provided.");
+                return;
+            }
+
+            Console.WriteLine("Directory tree:");
+            var root = new DirectoryInfo(args.FirstOrDefault());
+
+            PrintDirectoryContent(root);
+
+            Console.WriteLine();
+            Console.WriteLine("Directory path:");
+            Console.WriteLine(root.FullName);
+
+            Console.WriteLine();
+            Console.WriteLine("Oldest element creation date:");
+            Console.WriteLine(root.GetOldestDirectoryChildDate());
+
+            Console.WriteLine();
+            Console.WriteLine("File DOS attributes (RAHS):");
+            var fileInfo = root.GetRandomFile();
+            Console.WriteLine($"{fileInfo.Name}: {fileInfo.GetRAHSAttributes()}");
+
+
+            var orderedCollection = root
+                .GetFiles()
+                .OrderBy(info => info.FullName, new FilePatchComparer())
+                .ToDictionary(info => info.Name, info => info.Length);
+
+            Console.WriteLine();
+            Console.WriteLine("First directory's child files:");
+            foreach (var pair in orderedCollection)
+            {
+                Console.WriteLine($"{pair.Key} ({pair.Value} bytes)");
+            }
+
+
+            Console.ReadLine();
+        }
+
+        public static void PrintDirectoryContent(DirectoryInfo directoryInfo, int depth = 0)
+        {
+            var indentation = "--".Repeat(depth);
+
+            foreach (var file in directoryInfo.EnumerateFiles())
+            {
+                Console.WriteLine($"{indentation}{file.ToConsoleString()}");
+            }
+
+            foreach (var directory in directoryInfo.EnumerateDirectories())
+            {
+                Console.WriteLine($"{indentation}{directory.ToConsoleString()}");
+                PrintDirectoryContent(directory, depth++);
+            }
+        }
+    }
+}using System;
+using System.Collections.Specialized;
+using System.IO;
+using System.Linq;
+using Lab1_150348.Comparers;
+
+namespace Lab1_150348
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            if (string.IsNullOrWhiteSpace(args.FirstOrDefault()))
+            {
+                Console.WriteLine("Argument with directory path is not provided.");
+                return;
+            }
+
+            Console.WriteLine("Directory tree:");
+            var root = new DirectoryInfo(args.FirstOrDefault());
+
+            PrintDirectoryContent(root);
+
+            Console.WriteLine();
+            Console.WriteLine("Directory path:");
+            Console.WriteLine(root.FullName);
+
+            Console.WriteLine();
+            Console.WriteLine("Oldest element creation date:");
+            Console.WriteLine(root.GetOldestDirectoryChildDate());
+
+            Console.WriteLine();
+            Console.WriteLine("File DOS attributes (RAHS):");
+            var fileInfo = root.GetRandomFile();
+            Console.WriteLine($"{fileInfo.Name}: {fileInfo.GetRAHSAttributes()}");
+
+
+            var orderedCollection = root
+                .GetFiles()
+                .OrderBy(info => info.FullName, new FilePatchComparer())
+                .ToDictionary(info => info.Name, info => info.Length);
+
+            Console.WriteLine();
+            Console.WriteLine("First directory's child files:");
+            foreach (var pair in orderedCollection)
+            {
+                Console.WriteLine($"{pair.Key} ({pair.Value} bytes)");
+            }
+
+
+            Console.ReadLine();
+        }
+
+        public static void PrintDirectoryContent(DirectoryInfo directoryInfo, int depth = 0)
+        {
+            var indentation = "--".Repeat(depth);
+
+            foreach (var file in directoryInfo.EnumerateFiles())
+            {
+                Console.WriteLine($"{indentation}{file.ToConsoleString()}");
+            }
+
+            foreach (var directory in directoryInfo.EnumerateDirectories())
+            {
+                Console.WriteLine($"{indentation}{directory.ToConsoleString()}");
+                PrintDirectoryContent(directory, depth++);
+            }
+        }
+    }
+}using System;
+using System.Collections.Specialized;
+using System.IO;
+using System.Linq;
+using Lab1_150348.Comparers;
+
+namespace Lab1_150348
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            if (string.IsNullOrWhiteSpace(args.FirstOrDefault()))
+            {
+                Console.WriteLine("Argument with directory path is not provided.");
+                return;
+            }
+
+            Console.WriteLine("Directory tree:");
+            var root = new DirectoryInfo(args.FirstOrDefault());
+
+            PrintDirectoryContent(root);
+
+            Console.WriteLine();
+            Console.WriteLine("Directory path:");
+            Console.WriteLine(root.FullName);
+
+            Console.WriteLine();
+            Console.WriteLine("Oldest element creation date:");
+            Console.WriteLine(root.GetOldestDirectoryChildDate());
+
+            Console.WriteLine();
+            Console.WriteLine("File DOS attributes (RAHS):");
+            var fileInfo = root.GetRandomFile();
+            Console.WriteLine($"{fileInfo.Name}: {fileInfo.GetRAHSAttributes()}");
+
+
+            var orderedCollection = root
+                .GetFiles()
+                .OrderBy(info => info.FullName, new FilePatchComparer())
+                .ToDictionary(info => info.Name, info => info.Length);
+
+            Console.WriteLine();
+            Console.WriteLine("First directory's child files:");
+            foreach (var pair in orderedCollection)
+            {
+                Console.WriteLine($"{pair.Key} ({pair.Value} bytes)");
+            }
+
+
+            Console.ReadLine();
+        }
+
+        public static void PrintDirectoryContent(DirectoryInfo directoryInfo, int depth = 0)
+        {
+            var indentation = "--".Repeat(depth);
+
+            foreach (var file in directoryInfo.EnumerateFiles())
+            {
+                Console.WriteLine($"{indentation}{file.ToConsoleString()}");
+            }
+
+            foreach (var directory in directoryInfo.EnumerateDirectories())
+            {
+                Console.WriteLine($"{indentation}{directory.ToConsoleString()}");
+                PrintDirectoryContent(directory, depth++);
+            }
+        }
+    }
+}using System;
+using System.Collections.Specialized;
+using System.IO;
+using System.Linq;
+using Lab1_150348.Comparers;
+
+namespace Lab1_150348
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            if (string.IsNullOrWhiteSpace(args.FirstOrDefault()))
+            {
+                Console.WriteLine("Argument with directory path is not provided.");
+                return;
+            }
+
+            Console.WriteLine("Directory tree:");
+            var root = new DirectoryInfo(args.FirstOrDefault());
+
+            PrintDirectoryContent(root);
+
+            Console.WriteLine();
+            Console.WriteLine("Directory path:");
+            Console.WriteLine(root.FullName);
+
+            Console.WriteLine();
+            Console.WriteLine("Oldest element creation date:");
+            Console.WriteLine(root.GetOldestDirectoryChildDate());
+
+            Console.WriteLine();
+            Console.WriteLine("File DOS attributes (RAHS):");
+            var fileInfo = root.GetRandomFile();
+            Console.WriteLine($"{fileInfo.Name}: {fileInfo.GetRAHSAttributes()}");
+
+
+            var orderedCollection = root
+                .GetFiles()
+                .OrderBy(info => info.FullName, new FilePatchComparer())
+                .ToDictionary(info => info.Name, info => info.Length);
+
+            Console.WriteLine();
+            Console.WriteLine("First directory's child files:");
+            foreach (var pair in orderedCollection)
+            {
+                Console.WriteLine($"{pair.Key} ({pair.Value} bytes)");
+            }
+
+
+            Console.ReadLine();
+        }
+
+        public static void PrintDirectoryContent(DirectoryInfo directoryInfo, int depth = 0)
+        {
+            var indentation = "--".Repeat(depth);
+
+            foreach (var file in directoryInfo.EnumerateFiles())
+            {
+                Console.WriteLine($"{indentation}{file.ToConsoleString()}");
+            }
+
+            foreach (var directory in directoryInfo.EnumerateDirectories())
+            {
+                Console.WriteLine($"{indentation}{directory.ToConsoleString()}");
+                PrintDirectoryContent(directory, depth++);
+            }
+        }
+    }
+}

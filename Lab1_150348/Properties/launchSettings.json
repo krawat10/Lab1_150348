@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Lab1_150348": {
+      "commandName": "Project",
+      "commandLineArgs": ".\\ExampleDirectory .\\output.json"
+    }
+  }
+}
