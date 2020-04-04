@@ -27,7 +27,7 @@ namespace Lab1_150348
 
             if (args.Length == 2)
             {
-                Console.WriteLine("Deserialized");
+                Console.WriteLine("Deserialization");
                 Console.Write(Application.FromFile(args[1]));
                 Console.WriteLine();
             }

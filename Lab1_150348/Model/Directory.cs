@@ -31,15 +31,13 @@ namespace Lab1_150348.Model
         {
             var result = FullName;
             result += Environment.NewLine;
-            if (Directories.Any())
-            {
-                result += Directories.Select(directory => $"--{directory}").Aggregate((s, s1) => s + Environment.NewLine + s1);
-            }
 
-            if (Files.Any())
-            {
-                result += Files.Select(file => $"--{file}").Aggregate((s, s1) => s + Environment.NewLine + s1);
-            }
+            var content = new List<string>();
+
+            content.AddRange(Directories.Select(directory => $"--{directory.Name}"));
+            content.AddRange(Files.Select(directory => $"--{directory.Name}"));
+            
+            result += content.Aggregate((s, s1) => s + "\n" + s1);
 
             return result;
         }

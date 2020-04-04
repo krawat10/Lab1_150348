@@ -74,6 +74,7 @@ namespace Lab1_150348
                     JsonSerializer serializer = new JsonSerializer();
                     var deserialize = serializer.Deserialize<Model.Directory>(new JsonTextReader(file));
 
+                    Console.WriteLine($"Deserialized {path}");
                     return deserialize;
                 }
             }
